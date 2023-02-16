@@ -6,7 +6,8 @@ import util from 'node:util'
 
 // array of questions for user
 import inquirer from 'inquirer';
-    inquirer.prompt([
+
+ inquirer.prompt([
         {
           type: 'input',
           name: 'Title',
@@ -19,7 +20,7 @@ import inquirer from 'inquirer';
         },
         {
           type: 'input',
-          name: 'Table Of Contents',
+          name: 'TableOfContents',
           message: 'Yes or No?',
         },
         {
@@ -44,11 +45,19 @@ import inquirer from 'inquirer';
         }
 
       ]).then((data)=> {
-    console.log(data);
+
+
+        writeToFile("README.MD", data)
+        const readableData = data
+
 })
 
 // function to write README file
 function writeToFile(fileName, data) {
+    const {Title, Description, TableOfContents, Installation, Usage, license, Contributors} = data
+
+    console.log(Title, Description);
+    fs.writeFile("README.md", JSON.stringify(data, null, "\t"), (err) =>err ? console.log(err):console.log("Success!"))
 }
 
 // function to initialize program
