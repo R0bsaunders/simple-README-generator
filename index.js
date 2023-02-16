@@ -28,32 +28,37 @@ const promptUser = () =>
   inquirer.prompt([
     {
       type: 'input',
-      name: 'name',
-      message: 'What is your name?',
+      name: 'Title',
+      message: 'What is the title?',
     },
     {
       type: 'input',
-      name: 'location',
-      message: 'Where are you from?',
+      name: 'Description',
+      message: 'What is the description of your project?',
     },
     {
       type: 'input',
-      name: 'hobby',
-      message: 'What is your favorite hobby?',
+      name: 'Table of contents',
+      message: 'Yes or No?',
     },
     {
       type: 'input',
-      name: 'food',
-      message: 'What is your favorite food?',
+      name: 'Installation',
+      message: 'What are the installation instructions?',
     },
     {
       type: 'input',
-      name: 'github',
-      message: 'Enter your GitHub Username',
+      name: 'Usage',
+      message: 'What are the usage instructions?',
     },
     {
       type: 'input',
-      name: 'linkedin',
-      message: 'Enter your LinkedIn URL.',
+      name: 'license',
+      message: 'License Type',
     },
+    {
+        type: 'input',
+        name: 'Contributors',
+        message: 'Who are the project contributors',
+      },
   ]);
