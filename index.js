@@ -19,32 +19,33 @@ import inquirer from 'inquirer';
           message: 'What is the description of your project?',
         },
         {
-          type: 'input',
-          name: 'TableOfContents',
-          message: 'Yes or No?',
+          type: 'confirm',
+          name: 'tableOfContents',
+          message: 'Do you want a table of contents?',
         },
         {
           type: 'input',
-          name: 'Installation',
+          name: 'installation',
           message: 'What are the installation instructions?',
         },
         {
           type: 'input',
-          name: 'Usage',
+          name: 'usage',
           message: 'What are the usage instructions?',
         },
         {
           type: 'list',
           name: 'license',
-          message: 'License Type',
+          message: 'Select a license Type',
           choices:
             [
               'Apache 2.0 License',
               'Boost Software License 1.0',
               'BSD 3-Clause License',
+              'The MIT License',
               'BSD 2-Clause License',
               'CC0',
-              'Attribution 4.0 International',
+              'Attribution 4.0 International'
             ]
 
         },
@@ -54,20 +55,21 @@ import inquirer from 'inquirer';
         message: 'Who are the project contributors',
         }
 
-      ]).then((data)=> {
+      ]).then((answers)=> {
 
 
-        writeToFile("README.MD", data)
-        const readableData = data
+        // writeToFile("README.MD", data)
+        const readableData = answers
+        console.log(answers);
 
 })
 
 // function to write README file
-function writeToFile(fileName, data) {
-    const {Title, Description, TableOfContents, Installation, Usage, license, Contributors} = data
+function writeToFile(fileName, answers) {
+    const {Title, Description, TableOfContents, Installation, Usage, license, Contributors} = answers
 
     console.log(Title, Description);
-    fs.writeFile("README.md", JSON.stringify(data, null, "\t"), (err) =>err ? console.log(err):console.log("Success!"))
+    fs.writeFile("README.md", JSON.stringify(answers, null, "\t"), (err) =>err ? console.log(err):console.log("Success!"))
 }
 
 // function to initialize program
