@@ -122,8 +122,8 @@ import inquirer from 'inquirer';
 
         // writeToFile("README.MD", answers)
         
-        var test = generateMarkdown(answers);
-        console.log(test);
+        // let markedDown = generateMarkdown(answers);
+        writeToFile("README.md", generateMarkdown(answers))
 
 })
 
@@ -131,8 +131,7 @@ import inquirer from 'inquirer';
 function writeToFile(fileName, data) {
 
 
-    console.log(Title, Description);
-    fs.writeFile("README.md", JSON.stringify(data, null, "\t"), (err) =>err ? console.log(err):console.log("Success!"))
+    fs.writeFile("README.md", data, (err) =>err ? console.log(err):console.log("Success!"))
 }
 
 // function to initialize program
