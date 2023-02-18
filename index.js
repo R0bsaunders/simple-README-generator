@@ -34,9 +34,19 @@ import inquirer from 'inquirer';
           message: 'What are the usage instructions?',
         },
         {
-          type: 'input',
+          type: 'list',
           name: 'license',
           message: 'License Type',
+          choices:
+            [
+              'Apache 2.0 License',
+              'Boost Software License 1.0',
+              'BSD 3-Clause License',
+              'BSD 2-Clause License',
+              'CC0',
+              'Attribution 4.0 International',
+            ]
+
         },
         {
         type: 'input',
