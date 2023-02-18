@@ -12,6 +12,16 @@ import inquirer from 'inquirer';
           type: 'input',
           name: 'Title',
           message: 'What is the title?',
+          validate: function(input) {
+            let titleEntry = input;
+            if (!titleEntry) {
+              return 'Please enter a title';
+
+            } else {
+              return true;
+
+            };
+          };
         },
         {
           type: 'input',
