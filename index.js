@@ -1,8 +1,10 @@
 import fs from 'node:fs'
 import util from 'node:util'
+import {generateMarkdown} from "./utils/generateMarkdown.js";
 // const path = require('path');
 // const inquirer = require("inquirer");
 // const generateMarkdown = require("./utils/generateMarkdown");
+
 
 
 // array of questions for user
@@ -116,19 +118,21 @@ import inquirer from 'inquirer';
               }
       ]).then((answers)=> {
 
+        const {title, description, tableOfContents, installation, usage, license, contributors, tests, github, email} = answers;
 
-        // writeToFile("README.MD", data)
-        const readableData = answers
-        console.log(answers);
+        // writeToFile("README.MD", answers)
+        
+        var test = generateMarkdown(answers);
+        console.log(test);
 
 })
 
 // function to write README file
-function writeToFile(fileName, answers) {
-    const {Title, Description, TableOfContents, Installation, Usage, license, Contributors} = answers
+function writeToFile(fileName, data) {
+
 
     console.log(Title, Description);
-    fs.writeFile("README.md", JSON.stringify(answers, null, "\t"), (err) =>err ? console.log(err):console.log("Success!"))
+    fs.writeFile("README.md", JSON.stringify(data, null, "\t"), (err) =>err ? console.log(err):console.log("Success!"))
 }
 
 // function to initialize program
@@ -141,4 +145,3 @@ init();
 
 
 const writeFileAsync = util.promisify(fs.writeFile);
-

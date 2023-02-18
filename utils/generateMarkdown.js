@@ -1,8 +1,13 @@
 // function to generate markdown for README
-function generateMarkdown(data) {
+function generateMarkdown(userData) {
+  console.log(userData.title);
   return `
-  # ${data.title}
+  # ${userData.title} \n
+  ${userData.description} \n
+  
 `;
+
 }
 
-module.exports = generateMarkdown;
+
+export {generateMarkdown};

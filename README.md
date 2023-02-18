@@ -1,9 +1,12 @@
 {
-	"Title": "asdas",
-	"Description": "asdasd",
-	"TableOfContents": "asdads",
-	"Installation": "asdasd",
-	"Usage": "asdads",
+	"title": "1234567",
+	"description": "asdfasdf",
+	"tableOfContents": "Y",
+	"installation": "adsfsdf",
+	"usage": "asdfasdf",
 	"license": "Apache 2.0 License",
-	"Contributors": "asdasd"
+	"contributors": "adsfasdf",
+	"tests": "asdadfs",
+	"github": "asdfafds",
+	"email": "asdfafds"
 }
