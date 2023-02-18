@@ -11,35 +11,52 @@ import inquirer from 'inquirer';
  inquirer.prompt([
         {
           type: 'input',
-          name: 'Title',
+          name: 'title',
           message: 'What is the title?',
-
           validate: function(inputTitle) {
-            let titleEntry = inputTitle;
+            let title = inputTitle;
 
-            return (!titleEntry ? 'Please enter a title' : true);
+            return (!title ? 'Please enter a title' : true);
           }
         },
-
         {
           type: 'input',
-          name: 'Description',
+          name: 'description',
           message: 'What is the description of your project?',
+          validate: function(inputDescription) {
+            let description = inputDescription;
+
+            return (!description ? 'Please enter a description' : true);
+          }
         },
         {
-          type: 'confirm',
+          type: 'input',
           name: 'tableOfContents',
-          message: 'Do you want a table of contents?',
+          message: 'Do you want a table of contents? "Y" / "N"',
+          validate: function(confirm) {
+  
+            return (confirm != 'Y' && confirm != 'N' ? 'Please enter Y or N' : true);
+          }
         },
         {
           type: 'input',
           name: 'installation',
           message: 'What are the installation instructions?',
+          validate: function(inputInstallation) {
+            let installation = inputInstallation;
+
+            return (!installation ? 'Please enter installation instructions' : true);
+          }
         },
         {
           type: 'input',
           name: 'usage',
           message: 'What are the usage instructions?',
+          validate: function(inputUsage) {
+            let usage = inputUsage;
+
+            return (!usage ? 'Please enter installation instructions' : true);
+          }
         },
         {
           type: 'list',
@@ -59,10 +76,44 @@ import inquirer from 'inquirer';
         },
         {
         type: 'input',
-        name: 'Contributors',
+        name: 'contributors',
         message: 'Who are the project contributors',
-        }
+        validate: function(inputContributors) {
+          let contributors = inputContributors;
 
+          return (!contributors ? 'Please enter installation instructions' : true);
+        }
+        },
+        {
+          type: 'input',
+          name: 'tests',
+          message: 'What tests have been run?',
+          validate: function(inputTests) {
+            let tests = inputTests;
+  
+            return (!tests ? 'Please enter installation instructions' : true);
+          }
+          },
+          {
+            type: 'input',
+            name: 'github',
+            message: 'What is your GitHub username?',
+            validate: function(inputGithub) {
+              let github = inputGithub;
+    
+              return (!github ? 'Please enter your GitHub username' : true);
+            }
+            },
+            {
+              type: 'input',
+              name: 'email',
+              message: 'What is your email address?',
+              validate: function(inputEmail) {
+                let email = inputEmail;
+      
+                return (!email ? 'Please enter your GitHub username' : true);
+              }
+              }
       ]).then((answers)=> {
 
 
