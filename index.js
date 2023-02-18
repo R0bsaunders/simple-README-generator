@@ -4,6 +4,7 @@ import util from 'node:util'
 // const inquirer = require("inquirer");
 // const generateMarkdown = require("./utils/generateMarkdown");
 
+
 // array of questions for user
 import inquirer from 'inquirer';
 
@@ -12,17 +13,14 @@ import inquirer from 'inquirer';
           type: 'input',
           name: 'Title',
           message: 'What is the title?',
-          validate: function(input) {
-            let titleEntry = input;
-            if (!titleEntry) {
-              return 'Please enter a title';
 
-            } else {
-              return true;
+          validate: function(inputTitle) {
+            let titleEntry = inputTitle;
 
-            };
-          };
+            return (!titleEntry ? 'Please enter a title' : true);
+          }
         },
+
         {
           type: 'input',
           name: 'Description',
@@ -92,3 +90,4 @@ init();
 
 
 const writeFileAsync = util.promisify(fs.writeFile);
+
