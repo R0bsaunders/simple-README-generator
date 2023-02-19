@@ -8,12 +8,9 @@ function badgeSelector (license) {
   };
 
   return licenseBadge[license]
-
 };
 
 function generateMarkdown(userData) {
-  console.log(userData.title);
-
 
   return `
 ${badgeSelector(userData.license)}
@@ -56,8 +53,6 @@ You can get in touch by using the following:
 ## License
 This theme is distributed under the ${userData.license} License.
 `
-;
-}
-
+;};
 
 export {generateMarkdown};
