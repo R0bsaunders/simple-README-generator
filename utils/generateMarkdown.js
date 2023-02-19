@@ -16,9 +16,8 @@ function generateMarkdown(userData) {
 
 
   return `
-# ${userData.title}
-
 ${badgeSelector(userData.license)}
+# ${userData.title}
 
 ## Table of Contents
 
@@ -39,9 +38,6 @@ ${userData.installation}
 ## Usage
 ${userData.usage}
 
-## License
-${userData.license}
-
 ## Contributors
 ${userData.contributing}
 
@@ -56,6 +52,9 @@ You can get in touch by using the following:
 
 ### Email
 **[${userData.email}](${userData.email})**
+
+## License
+This theme is distributed under the ${userData.license} License.
 `
 ;
 }
