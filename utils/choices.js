@@ -24,7 +24,7 @@ const choices = [
         message: 'What are the installation instructions?',
         validate: function(inst) {
 
-        return validator(inst);
+            return validator(inst);
         }
     },
     {
@@ -50,7 +50,7 @@ const choices = [
     {
         type: 'input',
         name: 'contributing',
-        message: 'Who are the project contributors',
+        message: 'What are the contributing instructions?',
         validate: function(contr) {
 
             return validator(contr);
@@ -87,7 +87,7 @@ const choices = [
 
 // Function to check for empty answers and return message prompting user to type something
 function validator(input) {
-    return (!input ? 'Please enter a value' : true)
+    return (!input ? `Please enter a value` : true);
 
 };
 

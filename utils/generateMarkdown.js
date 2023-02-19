@@ -1,5 +1,4 @@
-// function to generate markdown for README
-
+// Function to select correct license badge
 function badgeSelector (license) {
   let licenseBadge = {
     Apache: "[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)",
@@ -10,11 +9,12 @@ function badgeSelector (license) {
   return licenseBadge[license]
 };
 
-function generateMarkdown(userData) {
+// function to generate markdown for README
+function generateMarkdown(usersAnswers) {
 
   return `
-${badgeSelector(userData.license)}
-# ${userData.title}
+${badgeSelector(usersAnswers.license)}
+# ${usersAnswers.title}
 
 ## Table of Contents
 
@@ -27,32 +27,33 @@ ${badgeSelector(userData.license)}
 - [Questions](#Questions)
 
 ## Description
-${userData.description}
+${usersAnswers.description}
 
 ## Installation
-${userData.installation}
+${usersAnswers.installation}
 
 ## Usage
-${userData.usage}
+${usersAnswers.usage}
 
 ## Contributors
-${userData.contributing}
+${usersAnswers.contributing}
 
 ## Testing
-${userData.tests}
+${usersAnswers.tests}
 
 ## Questions
 You can get in touch by using the following:
 
 ### GitHub
-**[${userData.github}](https://github.com/${userData.github})**
+**[${usersAnswers.github}](https://github.com/${usersAnswers.github})**
 
 ### Email
-**[${userData.email}](${userData.email})**
+**[${usersAnswers.email}](${usersAnswers.email})**
 
 ## License
-This theme is distributed under the ${userData.license} License.
-`
-;};
+This code is distributed under the ${usersAnswers.license} License.
+`;
+};
 
+// Make available to rest of the files
 export {generateMarkdown};

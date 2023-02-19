@@ -15,7 +15,14 @@ init();
 
 // function to initialize program
 function init() {
-  
+
+  // close inquirer input if user press "escape" key
+  process.stdin.on('keypress', (_, key) => {
+    if (key.name === "escape") {
+      exit();
+    };
+  });
+
   inquirer.prompt(choices)
   
   .then((answers)=> {
@@ -28,6 +35,12 @@ function init() {
 // function to write README file
 function writeToFile(fileName, data) {
 
-  fs.writeFile("README.md", data, (err) =>err ? console.log(err) : console.log("Success! You have a FANTASTIC readme file!"));
+  fs.writeFile("README.md", data, (err) =>err ? console.log(err) : console.log("Success! You have a FANTASTIC README file!"));
 
+};
+
+
+// Exit the inquirer prompt
+function exit () {
+  prompt.ui.close();
 };
