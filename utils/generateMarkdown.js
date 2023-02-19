@@ -1,9 +1,24 @@
 // function to generate markdown for README
+
+function badgeSelector (license) {
+  let licenseBadge = {
+    Apache: "[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)",
+    Boost: "[![License](https://img.shields.io/badge/License-Boost_1.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)",
+    MIT: "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)"
+  };
+
+  return licenseBadge[license]
+
+};
+
 function generateMarkdown(userData) {
   console.log(userData.title);
 
+
   return `
 # ${userData.title}
+
+${badgeSelector(userData.license)}
 
 ## Table of Contents
 
@@ -11,7 +26,7 @@ function generateMarkdown(userData) {
 - [Installation](#Installation)
 - [Usage](#Usage)
 - [License](#License)
-- [Contributors](#Contributors)
+- [Contributing](#Contributing)
 - [Testing](#Testing)
 - [Questions](#Questions)
 
@@ -28,7 +43,7 @@ ${userData.usage}
 ${userData.license}
 
 ## Contributors
-${userData.contributors}
+${userData.contributing}
 
 ## Testing
 ${userData.tests}

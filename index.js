@@ -1,10 +1,6 @@
 import fs from 'node:fs'
 import util from 'node:util'
 import {generateMarkdown} from "./utils/generateMarkdown.js";
-// const path = require('path');
-// const inquirer = require("inquirer");
-// const generateMarkdown = require("./utils/generateMarkdown");
-
 
 
 // array of questions for user
@@ -33,15 +29,6 @@ import inquirer from 'inquirer';
         },
         {
           type: 'input',
-          name: 'tableOfContents',
-          message: 'Do you want a table of contents? "Y" / "N"',
-          validate: function(confirm) {
-  
-            return (confirm != 'Y' && confirm != 'N' ? 'Please enter Y or N' : true);
-          }
-        },
-        {
-          type: 'input',
           name: 'installation',
           message: 'What are the installation instructions?',
           validate: function(inputInstallation) {
@@ -66,19 +53,14 @@ import inquirer from 'inquirer';
           message: 'Select a license Type',
           choices:
             [
-              'Apache 2.0 License',
-              'Boost Software License 1.0',
-              'BSD 3-Clause License',
-              'The MIT License',
-              'BSD 2-Clause License',
-              'CC0',
-              'Attribution 4.0 International'
+              'Apache',
+              'Boost',
+              'MIT'
             ]
-
         },
         {
         type: 'input',
-        name: 'contributors',
+        name: 'contributing',
         message: 'Who are the project contributors',
         validate: function(inputContributors) {
           let contributors = inputContributors;
@@ -118,11 +100,6 @@ import inquirer from 'inquirer';
               }
       ]).then((answers)=> {
 
-        const {title, description, tableOfContents, installation, usage, license, contributors, tests, github, email} = answers;
-
-        // writeToFile("README.MD", answers)
-        
-        // let markedDown = generateMarkdown(answers);
         writeToFile("README.md", generateMarkdown(answers))
 
 })
@@ -131,7 +108,7 @@ import inquirer from 'inquirer';
 function writeToFile(fileName, data) {
 
 
-    fs.writeFile("README.md", data, (err) =>err ? console.log(err):console.log("Success!"))
+    fs.writeFile("README.md", data, (err) =>err ? console.log(err):console.log("Success! You have a FANTASTIC readme file!"))
 }
 
 // function to initialize program
@@ -141,6 +118,3 @@ function init() {
 
 // function call to initialize program
 init();
-
-
-const writeFileAsync = util.promisify(fs.writeFile);
